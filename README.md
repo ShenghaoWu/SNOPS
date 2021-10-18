@@ -1,6 +1,7 @@
 Code package for SNOPS (Spiking Network Optimization using Population Statistics).  
 For more details, see the paper
 _Automated customization of large-scale spiking network models to neuronal population activity_ 
+
 Shenghao Wu, Chengcheng Huang, Adam Snyder, Matthew Smith*, Brent Doiron*, and Byron Yu*
 In submission 
 
