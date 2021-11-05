@@ -1,4 +1,6 @@
 function [gprMdl,gprMdl_feas,f_plus,epsilon_scaled]=fit_gp(x_train,y_train,y_feasibility,epsilon,gprMdl,current_feas,f_plus,epsilon_scaled,is_log) 
+%fitting GP using x,y training data
+
 if is_log
     y_train=log(y_train);
 end

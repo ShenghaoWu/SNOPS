@@ -1,5 +1,5 @@
 function [optimization_opt,obj_configs] = intensification(base_name,obj_configs,optimization_opt)
-%%% return obj_config and optimization_opt, update stats file 
+%%% intensification using base runs
 
 load(base_name)
 paras_=paras;

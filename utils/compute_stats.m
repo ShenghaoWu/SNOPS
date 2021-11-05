@@ -1,4 +1,5 @@
 function [rate0, var0, FanoFactor0, mean_corr0, unstable_flag, sampling_inds, re,low_rate_flag] = compute_stats(s1,Ic1,Tw,Tburn,n_sampling, n_neuron,check_stability) 
+%compute the single-neuron and pairwise statistics of the spike train
 
 low_rate_flag=0;
 unstable_flag=0;

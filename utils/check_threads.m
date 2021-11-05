@@ -1,4 +1,6 @@
 function [x_star,y_star,is_better]=check_threads(x_train,y_train,root,stats_name,true_statistics) 
+%checking parallel threads results
+
 x_star=nan;
 y_star=nan;
 is_better=0;

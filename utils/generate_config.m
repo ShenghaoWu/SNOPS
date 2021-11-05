@@ -1,7 +1,7 @@
 function [obj_configs, optimization_opt] =  generate_config(varargin)
 
 %opt file for SNN simulation
-save=0; % save data
+is_save=0; % save data
 CompCorr=0; % compute correlations
 Layer1only=1; % 1 for two-layer network, 0 for three-layer network
 loadS1=0;
@@ -29,10 +29,9 @@ statistics_group='123';
 survival_rate=Inf;
 is_simulation=1;
 is_small=1;
-Ne1=50;
+Ne=50;
 Ni1=25;
 save_stats=1;
-is_spatial=1;
 dim_method = 'CV_skip';
 stats_weights = [1,1,1,1,1,1];
 
@@ -49,6 +48,7 @@ std_tol=0.15;
 min_cost_eval=5;
 max_cost_eval=10;
 n_check=1e6;
+n_neuron = 50;
 is_log=1;
 base_name = [];
 top_n=50;
@@ -66,7 +66,7 @@ obj_configs={};
 optimization_opt={};
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-opt.save=save; % save data
+opt.save=is_save; % save data
 opt.CompCorr=CompCorr; % compute correlations
 opt.Layer1only=Layer1only; % 1 for two-layer network, 0 for three-layer network
 opt.loadS1=loadS1;
@@ -80,7 +80,6 @@ obj_configs.opt=opt;
 obj_configs.filename=filename;
 obj_configs.root=root;
 obj_configs.is_surrogate=is_surrogate;
-obj_configs.real_data_name = strcat(root,real_data_name,'.mat');
 obj_configs.n_sampling=n_sampling; %number of samplings for estimating spike train stats
 obj_configs.Tw=Tw; %window for binning spike trains
 obj_configs.Tburn=Tburn; %length for burning to exclude transient spikes
@@ -95,13 +94,12 @@ obj_configs.statistics_group=statistics_group;
 obj_configs.survival_rate=survival_rate;
 obj_configs.is_simulation=is_simulation;
 obj_configs.is_small=is_small;
-obj_configs.Ne1=Ne1;
+obj_configs.Ne=Ne;
 obj_configs.Ni1=Ni1;
 obj_configs.save_stats=save_stats;
-obj_configs.is_spatial=is_spatial;
 obj_configs.dim_method = dim_method;
 obj_configs.stats_weights = stats_weights;
-
+obj_configs.n_neuron = n_neuron;
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 optimization_opt.x_range=x_range;
 optimization_opt.epsilon=epsilon;
@@ -131,10 +129,7 @@ results_name=strcat(obj_configs.root,filename,'.mat');
 obj_configs.stats_filename=config_statsfile(stats_name);
 optimization_opt.save_name=results_name;
 
-%configure real data attribute of the config
-load(obj_configs.real_data_name);
-obj_configs.true_statistics=true_statistics;
-obj_configs.true_statistics.default_weights=obj_configs.stats_weights;
+
 
 %configure base for intensifications
 if ~isempty(base_name)

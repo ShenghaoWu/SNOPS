@@ -1,4 +1,6 @@
 function [rate1,var1, FanoFactor1, mean_corr1]=compute_statistics_only(re1_s) 
+%helper function for compute_stats.m
+
 rng shuffle;
 COV=cov([re1_s]');
 Var=diag(COV);

@@ -1,5 +1,6 @@
 function [base_name] = base_real(real_data_name,base_name,filename,top_n,sort_mode,stats_weights,is_sort)
 
+%generate base runs
 
 try 
 	load(strcat('./q/',filename,'_base.mat'));
