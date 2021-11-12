@@ -3,6 +3,13 @@ For more details, see the paper
 
 _Automated customization of large-scale spiking network models to neuronal population activity_    Shenghao Wu, Chengcheng Huang, Adam Snyder, Matthew Smith*, Brent Doiron*, and Byron Yu*
 
+**The following toolboxes are required to run the code:**
+1. Signal Processing Toolbox
+2. Statistics and Machine Learning Toolbox
+
+**If you are running the code on mac OS, the mex file for network simulation may be blocked due to security measures. Try the following command if you encounter such an issue (replacing the path with the one in your local system):**
+sudo xattr -r -d com.apple.quarantine /path/to/utils
+ 
 
 The file structure is as follows:
 
