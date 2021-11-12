@@ -1,8 +1,8 @@
 function [spike_train] =  SBN(input_para,T)
 %input_para: [1, number of parameters to optimize]
-%T: simulation length
+%T: simulation length in ms.
 %spike_train: [2, number of spikes], the first row is time (in ms), the
-%second row is the neuron id. The first 1 - Ne neurons are E neurons, the
+%second row is the neuron id. The first Ne neurons are E neurons, the
 %rest are I neurons.
 
 JrEX= input_para;
