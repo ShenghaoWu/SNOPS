@@ -8,6 +8,7 @@ _Automated customization of large-scale spiking network models to neuronal popul
 2. Statistics and Machine Learning Toolbox
 
 **If you are running the code on mac OS, the mex file for network simulation may be blocked due to security measures. Try the following command if you encounter such an issue (replacing the path with the one in your local system):**
+
 sudo xattr -r -d com.apple.quarantine /path/to/utils
  
 
