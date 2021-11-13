@@ -4,6 +4,8 @@ function [spike_train] =  SBN(input_para,T)
 %spike_train: [2, number of spikes], the first row is time (in ms), the
 %second row is the neuron id. The first Ne neurons are E neurons, the
 %rest are I neurons.
+% If you want to fit your own network model, Wrap your simulator with a
+% function of the exact same input/output formats of this function.
 
 JrEX= input_para;
 x= table(JrEX);
