@@ -16,7 +16,7 @@ The file structure is as follows:
 
 - **data**: contains sample target spike train and the log file for the optimization
 	- **save_name.mat**: optimization log file. Contains the parameter sets (x_train), cost (y_train), running time (optimization_time), and feasibility (y_feasibility) of each iteration.
-	- ** save_name_stats.mat**: activity statistics log file. Contains the parameter sets (paras), activity statistics of the full simulation (full_stats), activity statistics of the surrogate simulation (surrogate_stats), running time for the full and surrogate statistics (execution_time) of each parameter set evaluated. Note that the number rows may exceed that in the optimization log file because there may be multiple evaluations of the same parameter set for one optimization iteration.
+	- **save_name_stats.mat**: activity statistics log file. Contains the parameter sets (paras), activity statistics of the full simulation (full_stats), activity statistics of the surrogate simulation (surrogate_stats), running time for the full and surrogate statistics (execution_time) of each parameter set evaluated. Note that the number rows may exceed that in the optimization log file because there may be multiple evaluations of the same parameter set for one optimization iteration.
 
 - **utils**: contains helper functions
     - **fa_Yu**: functions for performing Factor Analysis, written by Byron Yu (https://users.ece.cmu.edu/~byronyu/software.shtml)
