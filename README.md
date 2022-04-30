@@ -7,16 +7,22 @@ _Automated customization of large-scale spiking network models to neuronal popul
 1. Signal Processing Toolbox
 2. Statistics and Machine Learning Toolbox
 
-**If you are running the code on mac OS, the mex file for network simulation may be blocked due to security measures. Try the following command if you encounter such an issue (replacing the path with the one in your local system):**
+**If you are running the code on mac OS, the mex files (EIF1DRFfastslowSyn.mexa64 and spktime2count.mexa64) in the /utils folder may be blocked due to security measures. There are two options to solve this issue:**
+1. Override the security protocals by typing the following code on the command line interface (replace the path with the one in your local system):
 
 sudo xattr -r -d com.apple.quarantine /path/to/utils
  
+2. If you don't not want to override system security protocals, you may compile the code on your own after deleting the existing mex files. Open the Matlab commandline, move to the utils folder, and type:
+mex EIF1DRFfastslowSyn.c 
+mex spktime2count.c
+
+
 
 The file structure is as follows:
 
 - **data**: contains sample target spike train and the log file for the optimization
 	- **save_name.mat**: optimization log file. Contains the parameter sets (x_train), cost (y_train), running time (optimization_time), and feasibility (y_feasibility) of each iteration.
-	- **save_name_stats.mat**: activity statistics log file. Contains the parameter sets (paras), activity statistics of the full simulation (full_stats), activity statistics of the surrogate simulation (surrogate_stats), running time for the full and surrogate statistics (execution_time) of each parameter set evaluated. Note that the number rows may exceed that in the optimization log file because there may be multiple evaluations of the same parameter set for one optimization iteration.
+	- **save_name_stats.mat**: activity statistics log file. Contains the parameter sets (paras), activity statistics of the full simulation (full_stats), activity statistics of the surrogate simulation (surrogate_stats), running time for the full and surrogate statistics (execution_time) of each parameter set evaluated. Note that the number of rows may exceed that in the optimization log file because there may be multiple evaluations of the same parameter set for one optimization iteration.
 
 - **utils**: contains helper functions
     - **fa_Yu**: functions for performing Factor Analysis, written by Byron Yu (https://users.ece.cmu.edu/~byronyu/software.shtml)
